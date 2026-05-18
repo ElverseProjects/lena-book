@@ -1,0 +1,14 @@
+[book]
+title = "Язык программирования Lena"
+authors = ["Matvey Rybalkin", "ChatGPT draft"]
+language = "ru"
+src = "src"
+
+[output.html]
+default-theme = "navy"
+preferred-dark-theme = "navy"
+git-repository-url = ""
+edit-url-template = ""
+
+[output.html.search]
+enable = true
