@@ -20,7 +20,7 @@ Lena — язык программирования со встроенной п�
 
 ```rust
 main():nil {
-    return nil
+    nil # or return nil
 }
 ```
 

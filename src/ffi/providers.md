@@ -1,8 +1,8 @@
 # Providers и `@`-пространства
 
-`@` используется для foreign/backend/compiler namespaces.
+Все foreign/backend/compiler модули имеют префикс `@`.
 
-```lena
+```rust
 @LLVM
 @C
 @Rust
@@ -10,12 +10,29 @@
 @Lena
 ```
 
-## Foreign path
+## Foreign функции и переменные
 
-```lena
-@Julia.f(100, 2000)
-@LLVM.i32
-@Lena.version
+Для вызова сторонней функции существует несколько методов:
+
+1. Вставка foreign кода:
+
+```rust
+
+@Julia {
+    using Lena
+
+    @lena function quadratic2(a::Float64, b::Float64, c::Float64)
+        sqr_term = sqrt(b^2-4a*c)
+        r1 = quadratic(a, sqr_term, b)
+        r2 = quadratic(a, -sqr_term, b)
+        r1, r2
+    end
+
+    Base.@ccallable function increment(count::Cint)::Cint
+        return count + 1
+    end
+}
+
 ```
 
 ## Foreign block

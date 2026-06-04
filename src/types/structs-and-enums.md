@@ -2,7 +2,7 @@
 
 ## Struct
 
-```lena
+```rust
 credit = struct {
     account_number:i32,
     client_last_name:str,
@@ -14,11 +14,11 @@ credit = struct {
 
 Создание значения:
 
-```lena
+```rust
 let c:credit = {
     .account_number = 10,
-    .client_last_name = "Ivanov",
-    .client_first_name = "Ivan",
+    .client_last_name = "Lenina",
+    .client_first_name = "Lena",
     .amount = 5000.0,
     .percent = 12,
 }

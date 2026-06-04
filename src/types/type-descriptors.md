@@ -4,7 +4,7 @@
 
 ```rust
 i32 = type {
-    repr:@LLVM.repr = @LLVM.int(bits = 32, signed = true)
+    repr:@LLVM::repr = @LLVM::int(bits = 32, signed = true)
 
     const MIN:self = -2147483648
     const MAX:self = 2147483647
@@ -27,7 +27,7 @@ i32 = type {
 
 ```rust
 name = type {
-    repr:@LLVM.repr = @LLVM... # backend репрезентация типа
+    repr:@LLVM::repr = @LLVM... # backend репрезентация типа
     ## или
     repr:type = ... # образование от существующего типа
 
@@ -49,20 +49,20 @@ name = type {
 
 Компилятор должен знать ограниченный набор storage constructors:
 
-```text
-builtin::int(bits, signed)
-builtin::float(bits, llvm, standard)
-builtin::bool()
-builtin::struct { ... }
-builtin::enum(backing)
-builtin::ptr(to, mutable, volatile)
-builtin::array(element, length)
-builtin::dynamic_array(element)
-builtin::function(params, result)
-builtin::opaque(...)
+```c++
+@LLVM::int(bits, signed)
+@LLVM::float(bits, llvm, standard)
+@LLVM::bool()
+@LLVM::struct { ... }
+@LLVM::enum(backing)
+@LLVM::ptr(to, mutable, volatile)
+@LLVM::array(element, length)
+@LLVM::dynamic_array(element)
+@LLVM::function(params, result)
+@LLVM::opaque(...)
 ```
 
-Пользователь может создавать много типов, но каждый тип должен сводиться к понятному storage.
+Пользователь может создавать любые типы на своё усмотрение, однако поддерживаемость конкретного зависит от target платформы. Стандартные типы поддерживаются на всех платформах.
 
 ## Foreign mappings
 

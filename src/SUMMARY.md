@@ -29,6 +29,9 @@
 # FFI, providers и платформы
 
 - [Providers и `@`-пространства](ffi/providers.md)
+- [Язык Julia](ffi/langs/julia.md)
+- [Язык Rust](ffi/langs/rust.md)
+- [Язык Python](ffi/langs/python.md)
 - [Multiplatform и embedded](targets/embedded.md)
 - [Система сборки](build/build-system.md)
 
